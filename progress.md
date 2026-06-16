@@ -26,3 +26,4 @@
 - 首次 `git push` 因 GitHub HTTPS 凭据无效失败；改为使用用户提供的临时 GitHub access token 进行本次推送，不将 token 写入 remote URL 或项目文件。
 - 使用临时 token 推送时 GitHub 拒绝更新 `.github/workflows/pages.yml`，原因是该 token 缺少 `workflow` scope；需要换用带 `workflow` 权限的 token，或改为先不推送 GitHub Actions 工作流。
 - 用户提供了新的 GitHub access token，准备使用一次性 HTTP 授权头重新推送，不将 token 持久化到 Git 配置或项目文件。
+- 推送成功：`main` 分支已上传到 `https://github.com/Jarod-Leo/Homepage.git`，本地 `main` 已跟踪 `origin/main`，远程提交为 `108890b`。
