@@ -37,3 +37,4 @@
 - 更新 README，补充 CMS 后台地址、可编辑内容范围和 GitHub token 权限说明。
 - 本地构建验证通过：`npm run build` 成功生成 45 个文件，包含 `admin/index.html` 和 `admin/config.yml`。
 - 本地浏览器验证通过：`http://127.0.0.1:4000/admin/` 打开为 Sveltia CMS，显示 GitHub 登录和 Access Token 登录入口，控制台无错误。
+- CMS 接入提交 `eaa452f` 已推送到 GitHub；GitHub Actions #4 部署成功，线上 `https://www.jarodleo.top/admin/` 和 `https://www.jarodleo.top/admin/config.yml` 均返回 200。
