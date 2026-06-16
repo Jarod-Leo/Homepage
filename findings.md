@@ -26,3 +26,10 @@
 - GitHub Pages 需要仓库启用 Pages，推荐使用 GitHub Actions 构建 Hexo 并发布。
 - 自定义域名需要在仓库发布产物中包含 `CNAME` 文件，内容为 `www.jarodleo.top`。
 - DNS 通常需要将 `www` 配置为 CNAME，指向 `<github-username>.github.io`。
+
+## 轻量 CMS
+
+- 采用 Sveltia CMS 作为可选后台入口：它是 Git-based headless CMS，兼容 Decap/Netlify CMS 配置，适合静态站点。
+- Decap CMS 文档说明，`config.yml` 通常放在 `/admin` 目录；CMS 会把内容保存到配置的远程仓库分支，而不是本地开发目录。
+- CMS 媒体目录设置为 `site/source/uploads`，构建后公开路径为 `/uploads`。
+- 为降低破坏风险，CMS 先开放文章、关于页、项目页编辑；不开放主题配置和 GitHub Actions 配置编辑。

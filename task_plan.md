@@ -36,12 +36,15 @@
 | 4. 内容与页面实现 | complete | 创建首页内容、关于、项目、友链、示例文章、分类标签 |
 | 5. GitHub Pages 部署配置 | complete | 添加 GitHub Actions、CNAME、部署说明和必要配置 |
 | 6. 本地验证与交付 | complete | 构建、预览、修复问题，整理最终说明 |
+| 7. 轻量 CMS 接入 | complete | 新增独立 `/admin/` 后台入口，配置 GitHub 后端管理文章和少量页面，验证不破坏现有 Hexo 构建 |
 
 ## 关键决策
 
 - 在未获得 GitHub 用户名和仓库权限前，先完成本地项目与 GitHub Pages 自动部署模板；如果本机已有 `gh` 登录态或用户补充仓库信息，再继续创建/推送远程仓库。
 - 站点默认使用 `www.jarodleo.top` 作为 `url`，避免上线后链接重复调整。
 - 页面文案先使用可替换的个人站占位内容，结构完整优先，后续可替换为真实履历、项目与文章。
+- 轻量 CMS 作为可选入口接入，不替代本地 Git 工作流；CMS 保存内容时仍然写入 GitHub 仓库并触发 GitHub Actions。
+- CMS 文件只放在 `site/source/admin/`，媒体文件放在 `site/source/uploads/`，尽量不触碰主题核心和已有内容结构。
 
 ## 待确认项
 

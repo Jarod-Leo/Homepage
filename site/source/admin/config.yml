@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: Jarod-Leo/Homepage
+  branch: main
+
+site_url: https://www.jarodleo.top
+display_url: https://www.jarodleo.top
+logo_url: /img/avatar.png
+
+media_folder: site/source/uploads
+public_folder: /uploads
+
+show_preview_links: true
+
+collections:
+  - name: posts
+    label: 博客文章
+    label_singular: 文章
+    folder: site/source/_posts
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "{{year}}/{{month}}/{{day}}/{{slug}}/"
+    editor:
+      preview: true
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 发布日期, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss" }
+      - label: 分类
+        name: categories
+        widget: list
+        required: false
+        field: { label: 分类名, name: category, widget: string }
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+        field: { label: 标签名, name: tag, widget: string }
+      - { label: 首页封面, name: index_img, widget: image, required: false, default: /img/site-banner.png }
+      - { label: 顶部横幅, name: banner_img, widget: image, required: false, default: /img/site-banner.png }
+      - { label: 摘要, name: excerpt, widget: text, required: false }
+      - { label: 正文, name: body, widget: markdown }
+
+  - name: pages
+    label: 固定页面
+    files:
+      - name: about
+        label: 关于页
+        file: site/source/about/index.md
+        fields:
+          - { label: 标题, name: title, widget: string }
+          - { label: 日期, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: 布局, name: layout, widget: hidden, default: about }
+          - { label: 顶部横幅, name: banner_img, widget: image, required: false, default: /img/site-banner.png }
+          - { label: 正文, name: body, widget: markdown }
+      - name: projects
+        label: 项目页
+        file: site/source/projects/index.md
+        fields:
+          - { label: 标题, name: title, widget: string }
+          - { label: 日期, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss" }
+          - { label: 顶部横幅, name: banner_img, widget: image, required: false, default: /img/site-banner.png }
+          - { label: 正文, name: body, widget: markdown }
+

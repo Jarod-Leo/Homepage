@@ -27,3 +27,13 @@
 - 使用临时 token 推送时 GitHub 拒绝更新 `.github/workflows/pages.yml`，原因是该 token 缺少 `workflow` scope；需要换用带 `workflow` 权限的 token，或改为先不推送 GitHub Actions 工作流。
 - 用户提供了新的 GitHub access token，准备使用一次性 HTTP 授权头重新推送，不将 token 持久化到 Git 配置或项目文件。
 - 推送成功：`main` 分支已上传到 `https://github.com/Jarod-Leo/Homepage.git`，本地 `main` 已跟踪 `origin/main`，远程提交为 `108890b`。
+
+## 2026-06-17
+
+- 开始接入轻量 CMS：目标是在不重构 Hexo/Fluid/GitHub Actions 的前提下新增独立 `/admin/` 后台入口。
+- 调研 CMS 接入方式：选择 Sveltia CMS + Decap 兼容配置，后台仍然把内容提交到 `Jarod-Leo/Homepage` 的 `main` 分支。
+- 新增 `site/source/admin/index.html` 和 `site/source/admin/config.yml`，接入 Sveltia CMS；配置文章、关于页、项目页和上传媒体目录。
+- 更新 `site/_config.yml` 的 `skip_render`，让 Hexo 原样复制 `/admin/` 后台文件，降低渲染破坏风险。
+- 更新 README，补充 CMS 后台地址、可编辑内容范围和 GitHub token 权限说明。
+- 本地构建验证通过：`npm run build` 成功生成 45 个文件，包含 `admin/index.html` 和 `admin/config.yml`。
+- 本地浏览器验证通过：`http://127.0.0.1:4000/admin/` 打开为 Sveltia CMS，显示 GitHub 登录和 Access Token 登录入口，控制台无错误。
