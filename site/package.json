@@ -1,0 +1,32 @@
+{
+  "name": "jarodleo-personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal website powered by Hexo, Fluid and GitHub Pages.",
+  "hexo": {
+    "version": "7.3.0"
+  },
+  "scripts": {
+    "clean": "hexo clean",
+    "build": "hexo clean && hexo generate",
+    "server": "hexo server --host 127.0.0.1 --port 4000",
+    "new": "hexo new"
+  },
+  "dependencies": {
+    "hexo": "^7.3.0",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-feed": "^3.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-sitemap": "^3.0.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-fluid": "^1.9.8",
+    "hexo-cli": "^4.3.2"
+  }
+}

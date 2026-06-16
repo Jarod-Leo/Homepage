@@ -1,0 +1,117 @@
+favicon: /img/avatar.png
+apple_touch_icon: /img/avatar.png
+
+navbar:
+  blog_title: Jarod Leo
+  ground_glass:
+    enable: true
+  menu:
+    - { key: 首页, link: /, icon: iconfont icon-home-fill }
+    - { key: 归档, link: /archives/, icon: iconfont icon-archive-fill }
+    - { key: 分类, link: /categories/, icon: iconfont icon-category-fill }
+    - { key: 标签, link: /tags/, icon: iconfont icon-tags-fill }
+    - { key: 项目, link: /projects/, icon: iconfont icon-code }
+    - { key: 友链, link: /links/, icon: iconfont icon-link-fill }
+    - { key: 关于, link: /about/, icon: iconfont icon-user-fill }
+
+index:
+  banner_img: /img/site-banner.png
+  banner_img_height: 70
+  slogan:
+    enable: true
+    text: Life Oriented Programming
+  post_url_target: _self
+  post_meta:
+    date: true
+    category: true
+    tag: true
+
+post:
+  banner_img: /img/site-banner.png
+  default_index_img: /img/site-banner.png
+  meta:
+    author:
+      enable: true
+    date:
+      enable: true
+    wordcount:
+      enable: true
+    min2read:
+      enable: true
+  toc:
+    enable: true
+    headingSelector: h1,h2,h3,h4,h5,h6
+    collapseDepth: 0
+  copyright:
+    enable: true
+    license: CC BY-NC-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+archive:
+  banner_img: /img/site-banner.png
+  subtitle: 文章归档
+
+category:
+  banner_img: /img/site-banner.png
+  subtitle: 内容分类
+
+tag:
+  banner_img: /img/site-banner.png
+  subtitle: 主题标签
+
+about:
+  banner_img: /img/site-banner.png
+  avatar: /img/avatar.png
+  name: Jarod Leo
+  intro: Code, Research, Life
+  icons:
+    - { class: iconfont icon-github-fill, link: https://github.com/, tip: GitHub }
+    - { class: iconfont icon-mail, link: mailto:hello@jarodleo.top, tip: Email }
+
+search:
+  enable: true
+  path: /local-search.xml
+  field: post
+  content: true
+
+links:
+  enable: true
+  title: 友链
+  subtitle: 常读博客、工具与长期参考资料
+  banner_img: /img/site-banner.png
+  banner_img_height: 60
+  banner_mask_alpha: 0.35
+  items:
+    - {
+      title: GitHub,
+      intro: 代码托管与开源项目,
+      link: https://github.com/,
+      avatar: /img/avatar.png
+    }
+    - {
+      title: Hexo,
+      intro: 快速、简洁且高效的博客框架,
+      link: https://hexo.io/,
+      avatar: /img/avatar.png
+    }
+    - {
+      title: Fluid,
+      intro: 当前站点使用的 Hexo 主题,
+      link: https://hexo.fluid-dev.com/,
+      avatar: /img/avatar.png
+    }
+  onerror_avatar: /img/avatar.png
+  custom:
+    enable: true
+    content: '<hr><p>欢迎交换友链。建议提供站点名称、简介、链接和头像地址。</p>'
+  comments:
+    enable: false
+    type: disqus
+
+footer:
+  content: '<span>Copyright © Jarod Leo</span>'
+  statistics:
+    enable: false
+
+custom_css:
+  - /css/custom.css
