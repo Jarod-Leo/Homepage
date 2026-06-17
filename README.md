@@ -106,3 +106,20 @@ public_repo
 ```
 
 CMS 不会把 token 写进仓库；token 保存在你当前浏览器会话/本地存储中。不要在 CMS 里编辑 `.github/workflows/`、`package.json`、主题配置等工程文件，结构性改动仍建议本地修改、构建验证后再推送。
+
+### 普通 GitHub 登录
+
+当前 `/admin/` 会隐藏普通 **Sign In with GitHub** 按钮，因为 GitHub Pages 不是 Netlify，默认 OAuth 会跳到 `api.netlify.com/auth` 并失败。Decap CMS 的 GitHub backend 文档也说明，GitHub 认证需要一个服务端 OAuth 代理；Sveltia 官方提供了可部署到 Cloudflare Workers 的 Sveltia CMS Authenticator。
+
+如果以后要启用普通 GitHub 登录：
+
+1. 部署 Sveltia CMS Authenticator 到 Cloudflare Workers。
+2. 在 GitHub 注册 OAuth App，callback URL 使用 Worker 的 `/callback`。
+3. 在 Worker 环境变量里设置 `GITHUB_CLIENT_ID`、`GITHUB_CLIENT_SECRET` 和 `ALLOWED_DOMAINS=www.jarodleo.top`。
+4. 在 `site/source/admin/config.yml` 的 `backend` 下取消注释并填写：
+
+```yaml
+base_url: https://your-sveltia-cms-auth.workers.dev
+```
+
+配置后后台会自动显示普通 GitHub 登录按钮。

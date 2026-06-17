@@ -22,11 +22,60 @@
         border-radius: 8px;
         background: #fff;
       }
+
+      .cms-auth-note {
+        position: fixed;
+        z-index: 9999;
+        right: 16px;
+        bottom: 16px;
+        max-width: 360px;
+        box-sizing: border-box;
+        padding: 14px 16px;
+        border: 1px solid #99f6e4;
+        border-radius: 8px;
+        background: #f0fdfa;
+        color: #134e4a;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .cms-auth-note strong {
+        display: block;
+        margin-bottom: 4px;
+      }
     </style>
   </head>
   <body>
     <noscript>请启用 JavaScript 后使用博客后台。</noscript>
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <script>
+      (async () => {
+        const configText = await fetch('/admin/config.yml').then((res) => res.text()).catch(() => '');
+        const hasOAuthProxy = /^\s*base_url\s*:/m.test(configText);
+
+        if (hasOAuthProxy) {
+          return;
+        }
+
+        const note = document.createElement('div');
+        note.className = 'cms-auth-note';
+        note.innerHTML = '<strong>当前请使用 Access Token 登录</strong>普通 GitHub 登录需要先配置 OAuth 代理；未配置时会跳到 Netlify 并失败。';
+        document.body.appendChild(note);
+
+        const hideBrokenOAuthButton = () => {
+          for (const button of document.querySelectorAll('button')) {
+            const text = button.textContent || '';
+            if (text.includes('GitHub') && !text.includes('Access Token')) {
+              button.style.display = 'none';
+            }
+          }
+        };
+
+        hideBrokenOAuthButton();
+        const timer = window.setInterval(hideBrokenOAuthButton, 500);
+        window.setTimeout(() => window.clearInterval(timer), 15000);
+      })();
+    </script>
   </body>
 </html>
-

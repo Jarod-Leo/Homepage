@@ -33,3 +33,5 @@
 - Decap CMS 文档说明，`config.yml` 通常放在 `/admin` 目录；CMS 会把内容保存到配置的远程仓库分支，而不是本地开发目录。
 - CMS 媒体目录设置为 `site/source/uploads`，构建后公开路径为 `/uploads`。
 - 为降低破坏风险，CMS 先开放文章、关于页、项目页编辑；不开放主题配置和 GitHub Actions 配置编辑。
+- 直接点击普通 GitHub 登录会使用 Netlify OAuth 代理；站点不在 Netlify 时会跳到 `api.netlify.com/auth` 并返回 Not Found。
+- Sveltia 官方推荐技术用户直接使用 Access Token；如需普通 GitHub OAuth 登录，需要部署 Sveltia CMS Authenticator 到 Cloudflare Workers，并在 `backend.base_url` 中配置 Worker URL。

@@ -2,6 +2,9 @@ backend:
   name: github
   repo: Jarod-Leo/Homepage
   branch: main
+  # To enable one-click "Sign In with GitHub", deploy Sveltia CMS Authenticator
+  # to Cloudflare Workers, then uncomment and set this to your Worker URL.
+  # base_url: https://your-sveltia-cms-auth.workers.dev
 
 site_url: https://www.jarodleo.top
 display_url: https://www.jarodleo.top
@@ -63,4 +66,3 @@ collections:
           - { label: 日期, name: date, widget: datetime, format: "YYYY-MM-DD HH:mm:ss" }
           - { label: 顶部横幅, name: banner_img, widget: image, required: false, default: /img/site-banner.png }
           - { label: 正文, name: body, widget: markdown }
-
