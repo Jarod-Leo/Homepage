@@ -107,6 +107,32 @@ public_repo
 
 CMS 不会把 token 写进仓库；token 保存在你当前浏览器会话/本地存储中。不要在 CMS 里编辑 `.github/workflows/`、`package.json`、主题配置等工程文件，结构性改动仍建议本地修改、构建验证后再推送。
 
+### 写 LaTeX 公式
+
+文章支持 LaTeX/MathJax 公式。在 CMS 文章编辑页打开：
+
+```text
+启用公式渲染
+```
+
+然后在正文中使用：
+
+```markdown
+行内公式：$E = mc^2$
+
+块级公式：
+
+$$
+\int_0^1 x^2 dx = \frac{1}{3}
+$$
+```
+
+本地新建文章时也可以在 front matter 中设置：
+
+```yaml
+math: true
+```
+
 ### 普通 GitHub 登录
 
 当前 `/admin/` 会隐藏普通 **Sign In with GitHub** 按钮，因为 GitHub Pages 不是 Netlify，默认 OAuth 会跳到 `api.netlify.com/auth` 并失败。Decap CMS 的 GitHub backend 文档也说明，GitHub 认证需要一个服务端 OAuth 代理；Sveltia 官方提供了可部署到 Cloudflare Workers 的 Sveltia CMS Authenticator。

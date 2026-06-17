@@ -43,6 +43,7 @@ collections:
         field: { label: 标签名, name: tag, widget: string }
       - { label: 首页封面, name: index_img, widget: image, required: false, default: /img/site-banner.png }
       - { label: 顶部横幅, name: banner_img, widget: image, required: false, default: /img/site-banner.png }
+      - { label: 启用公式渲染, name: math, widget: boolean, required: false, default: false }
       - { label: 摘要, name: excerpt, widget: text, required: false }
       - { label: 正文, name: body, widget: markdown }
 

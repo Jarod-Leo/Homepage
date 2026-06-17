@@ -39,3 +39,6 @@
 - 本地浏览器验证通过：`http://127.0.0.1:4000/admin/` 打开为 Sveltia CMS，显示 GitHub 登录和 Access Token 登录入口，控制台无错误。
 - CMS 接入提交 `eaa452f` 已推送到 GitHub；GitHub Actions #4 部署成功，线上 `https://www.jarodleo.top/admin/` 和 `https://www.jarodleo.top/admin/config.yml` 均返回 200。
 - 处理 CMS 普通 GitHub 登录失败：确认默认入口会跳到 Netlify OAuth；在未配置 OAuth Worker 时隐藏普通 GitHub 登录按钮，提示使用 Access Token 登录，并补充 Cloudflare Workers OAuth 配置说明。
+- 开始支持 LaTeX 公式：保留默认 `hexo-renderer-marked`，启用 Fluid MathJax 按文章渲染，并在 CMS 文章表单新增“启用公式渲染”开关；曾测试 markdown-it 路线，但因插件与新版 markdown-it 不兼容而撤回。
+- LaTeX 支持验证通过：`npm run build` 成功，`npm audit` 为 0 个漏洞；临时测试页确认会加载 MathJax，CMS 配置确认包含“启用公式渲染”字段。
+- 发现 CMS 新增的 PPO 文章包含大量公式；已为该文章补充 `math: true`，并新增本地 Hexo filter 保护公式内容，避免 Markdown 在 MathJax 渲染前误解析公式下标。

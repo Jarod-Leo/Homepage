@@ -35,3 +35,10 @@
 - 为降低破坏风险，CMS 先开放文章、关于页、项目页编辑；不开放主题配置和 GitHub Actions 配置编辑。
 - 直接点击普通 GitHub 登录会使用 Netlify OAuth 代理；站点不在 Netlify 时会跳到 `api.netlify.com/auth` 并返回 Not Found。
 - Sveltia 官方推荐技术用户直接使用 Access Token；如需普通 GitHub OAuth 登录，需要部署 Sveltia CMS Authenticator 到 Cloudflare Workers，并在 `backend.base_url` 中配置 Worker URL。
+
+## LaTeX 公式
+
+- Fluid 主题内置数学公式开关，但默认关闭；本项目采用按文章开启的 MathJax 前端渲染，尽量减少对 Markdown 渲染器的改动。
+- 为避免引入 markdown-it 兼容和审计风险，保留默认 `hexo-renderer-marked`，使用 Fluid 的 MathJax 前端渲染。
+- 公式按文章开启：文章 front matter 中设置 `math: true` 后加载 MathJax；CMS 提供“启用公式渲染”布尔开关。
+- 默认 Markdown 渲染器会把部分 LaTeX 下标里的 `_` 当作 Markdown 强调标记；已通过本地 Hexo filter 在 `math: true` 文章中保护 `$...$` 和 `$$...$$` 片段，渲染后再交给 MathJax。
